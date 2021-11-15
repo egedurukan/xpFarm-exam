@@ -46,3 +46,26 @@ function checkVertical (board) {
 function checkHorizontal (board) {
     return validateCollection(board);
 }
+
+function checkDiagonal (board) {
+    let winner = '';
+    let rightDiagonal = [];
+    let leftDiagonal = [];
+    for (let i = 0; i < board.length; i++) {
+        rightDiagonal.push(board[i][i]);
+        leftDiagonal.push(board[i][board.length-i-1]);
+    }
+
+    if(rightDiagonal.every(value => value === "X")) {
+        winner = "Player X won!";
+    } else if(rightDiagonal.every(value => value === "O")) {
+        winner = "Player O won!";
+    }
+    if(leftDiagonal.every(value => value === "X")) {
+        winner = "Player X won!";
+    } else if(leftDiagonal.every(value => value === "O")) {
+        winner = "Player O won!";
+    }
+
+    return winner;
+}
