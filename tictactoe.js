@@ -105,6 +105,3 @@ function playGame() {
         console.log("Game ends with a draw!")
     }
 }
-
-newGame();
-playGame();
