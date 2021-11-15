@@ -14,3 +14,17 @@ describe('test playerMove()', () => {
         movelist.includes(playerMove()).should.equal(true);
     });
 });
+
+describe('test inputValidator', () => {
+    it('should return true on corect input', () => {
+        inputValidator(1,0).should.equal(true);
+    });
+
+    it('should throw error on incorrect input', () => {
+        assert.throws(() => { inputValidator(5,0) }, Error);
+    });
+
+    it('should throw error on incorrect input type', () => {
+        assert.throws(() => { inputValidator("1",0) }, Error);
+    });
+});
