@@ -10,3 +10,11 @@ function newGame() {
 function playerMove () {
     return moves[Math.floor(Math.random() * moves.length)];
 }
+
+function inputValidator(input){
+    if(typeof input !== "number" || (0 > input || input > 2)){
+        throw new Error("Invalid input");
+    }
+
+    return true;
+}
