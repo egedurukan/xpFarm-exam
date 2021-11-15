@@ -62,3 +62,20 @@ describe('test checkHorizontal()', () => {
         checkHorizontal(currentBoard).should.equal("");
     });
 });
+
+describe('test checkDiagonal()', () => {
+    it('should return with the winner X on 3 horizontal match', () => {
+        const currentBoard = [["X","","X"],["","X",""],["","","X"]];
+        checkDiagonal(currentBoard).should.equal("Player X won!");
+    });
+
+    it('should return with the winner O on 3 horizontal match', () => {
+        const currentBoard = [["","","O"],["","O",""],["O","",""]];
+        checkDiagonal(currentBoard).should.equal("Player O won!");
+    });
+    
+    it('should return empyt when no vertical matches', () => {
+        const currentBoard = [["X","",""],["","X",""],["","","O"]];
+        checkHorizontal(currentBoard).should.equal("");
+    });
+});
