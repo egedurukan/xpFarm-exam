@@ -42,3 +42,7 @@ function checkVertical (board) {
     }
     return validateCollection(verticalLineColl);
 }
+
+function checkHorizontal (board) {
+    return validateCollection(board);
+}
