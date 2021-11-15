@@ -28,3 +28,20 @@ describe('test inputValidator', () => {
         assert.throws(() => { inputValidator("1",0) }, Error);
     });
 });
+
+describe('test checkVertical()', () => {
+    it('should return with the winner X on 3 vertical match', () => {
+        const currentBoard = [["X","",""],["X","",""],["X","",""]];
+        checkVertical(currentBoard).should.equal("Player X won!");
+    });
+
+    it('should return with the winner O on 3 vertical match', () => {
+        const currentBoard = [["O","",""],["O","",""],["O","",""]];
+        checkVertical(currentBoard).should.equal("Player O won!");
+    });
+
+    it('should return empyt when no vertical matches', () => {
+        const currentBoard = [["X","",""],["X","",""],["O","",""]];
+        checkVertical(currentBoard).should.equal("");
+    });
+});
