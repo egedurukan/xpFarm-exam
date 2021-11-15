@@ -69,3 +69,42 @@ function checkDiagonal (board) {
 
     return winner;
 }
+
+function ticTacToe (row, column, player) {
+    if(inputValidator(row) && inputValidator(column)){
+        const move = [row, column].join(",");
+        if (moves.includes(move)) {
+            board[row][column] = player;
+            moves.splice(moves.indexOf(move), 1);
+        } else {
+            console.log("No such move is available");
+        }
+    }
+    return board;
+}
+
+function playGame() {
+    let playerSelection = [];
+    let isGameOver;
+    for (let i = 0; i < 10; i++) {
+        isGameOver = checkHorizontal(board) || checkVertical(board) || checkDiagonal(board);
+        if (isGameOver) {
+            console.log(isGameOver);
+            console.table(board);
+            break;
+        }
+        playerSelection = playerMove().split(',').map(el => parseInt(el));
+        if (i % 2 === 0) {
+            ticTacToe(playerSelection[0], playerSelection[1], "X");
+        } else {
+            ticTacToe(playerSelection[0], playerSelection[1], "O");
+        }
+    }
+
+    if (!isGameOver) {
+        console.log("Game ends with a draw!")
+    }
+}
+
+newGame();
+playGame();
